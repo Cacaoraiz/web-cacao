@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cacao Raíz | Chocolate Artesanal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --dorado: #b8943a;
+    --boton: #2a2a2a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #111;
+    color: white;
+}
+
+/* MENU */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.9);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* LOGO */
+.nav-logo {
+    height: 50px;
+    cursor: pointer;
+}
+
+/* BOTONES MENU */
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    background: var(--boton);
+    border-radius: 6px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    background: var(--dorado);
+}
+
+.nav-links a.active {
+    background: var(--dorado);
+}
+
+/* HERO IMAGEN COMPLETA */
+header {
+    margin-top: 70px;
+    min-height: 100vh;
+    background-image: url("hero-web 1.png");
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: black;
+    position: relative;
+}
+
+/* TEXTO SOBRE LA MESA */
+.hero-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 78%; /* POSICIÓN SOBRE LA MESA */
+    text-align: center;
+}
+
+.subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    background: rgba(0,0,0,0.6);
+    padding: 15px 25px;
+    border-radius: 8px;
+}
+
+/* SECCIONES */
+section {
+    padding: 100px 10%;
+}
+
+.origen {
+    background: #0a0a0a;
+    text-align: center;
+}
+
+.catalogo {
+    text-align: center;
+}
+
+/* PRODUCTOS */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.producto-img-container {
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+}
+
+.producto-img {
+    max-height: 90%;
+    max-width: 90%;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 60px 20px;
+    background: #080808;
+}
+
+/* WHATSAPP */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.whatsapp img {
+    width: 60px;
+}
+
+/* HOME FLOTANTE */
+.home-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: var(--dorado);
+    padding: 12px 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.home-btn.show {
+    opacity: 1;
+}
+
+/* FLECHA */
+.scroll-top {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background: black;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+.scroll-top.show {
+    opacity: 1;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<a href="#inicio">
+<img src="logo-principal 2.png" class="nav-logo">
+</a>
+
+<div class="nav-links">
+<a href="#inicio" class="nav-link">HOME</a>
+<a href="#origen" class="nav-link">ORIGEN</a>
+<a href="#catalogo" class="nav-link">COLECCIÓN</a>
+<a href="#contacto" class="nav-link">CONTACTO</a>
+</div>
+
+</nav>
+
+<header id="inicio">
+
+<div class="hero-text">
+<p class="subtitle">
+Del corazón de Sucre a tu paladar
+</p>
+</div>
+
+</header>
+
+<section id="origen" class="origen">
+
+<h2>Nuestra Raíz</h2>
+
+<p>
+En **Cacao Raíz**, En el corazón del Estado Sucre, donde la brisa del Caribe se encuentra con la fertilidad de 
+la selva venezolana, nace nuestra historia. No somos solo chocolate; somos el tributo a una tierra que respira 
+cacao desde hace siglos.
+Cacao Raíz surge del respeto absoluto por el origen. Seleccionamos los granos de las mejores plantaciones de
+la región oriental de Venezuela, reconocida mundialmente por producir un fruto con perfiles de sabor incomparables.
+Lo que nos define: Pureza al 100%: Creemos que la naturaleza es perfecta. Por eso, nuestras barras son cacao puro, 
+sin atajos ni añadidos, preservando cada nota aromática y beneficio ancestral.
+Origen Sucre: Honramos el suelo sucrense, cuna del cacao de alta gama, trabajando de la mano con la tradición local
+para llevar del árbol a tu paladar una experiencia honesta. 
+Compromiso con la Esencia: Nuestra raíz es la fuerza que nos impulsa a transformar el grano en una joya gastronómica,    
+manteniendo viva la herencia del mejor cacao del mundo.
+Cacao Raíz: Es un viaje sensorial al origen del chocolate, sin filtros y con todo el alma de Venezuela.
+
+</p>
+
+</section>
+
+<section id="catalogo" class="catalogo">
+
+<h2>La Colección</h2>
+
+<div class="productos-grid">
+
+<div>
+<div class="producto-img-container">
+<img src="empaque-oscuro.png" class="producto-img">
+</div>
+<h3>Chocolate 30g</h3>
+</div>
+
+<div>
+<div class="producto-img-container">
+<img src="empaque-morado.png" class="producto-img">
+</div>
+<h3>Chocolate 50g</h3>
+</div>
+
+</div>
+
+</section>
+
+<footer id="contacto">
+
+<img src="logo-principal 2.png" height="60">
+
+<p>
+Carúpano - Venezuela
+</p>
+
+</footer>
+
+<a class="whatsapp" href="https://wa.me/584000000000">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+</a>
+
+<a href="#inicio" class="home-btn" id="homeBtn">
+HOME
+</a>
+
+<a href="#inicio" class="scroll-top" id="scrollTop">
+↑
+</a>
+
+<script>
+
+window.addEventListener("scroll", function() {
+
+let scrollTop = document.getElementById("scrollTop");
+let homeBtn = document.getElementById("homeBtn");
+
+if(window.scrollY > 300){
+scrollTop.classList.add("show");
+homeBtn.classList.add("show");
+}else{
+scrollTop.classList.remove("show");
+homeBtn.classList.remove("show");
+}
+
+});
+
+const sections = document.querySelectorAll("section, header");
+const links = document.querySelectorAll(".nav-link");
+
+window.addEventListener("scroll", () => {
+
+let current = "";
+
+sections.forEach(section => {
+const sectionTop = section.offsetTop - 200;
+if(pageYOffset >= sectionTop){
+current = section.getAttribute("id");
+}
+});
+
+links.forEach(link => {
+link.classList.remove("active");
+if(link.getAttribute("href") === "#" + current){
+link.classList.add("active");
+}
+});
+
+});
+
+</script>
+
+</body>
+</html>
