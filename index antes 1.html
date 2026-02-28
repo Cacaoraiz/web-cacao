@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cacao Raíz | Chocolate 100% Artesanal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- VARIABLES DE DISEÑO (Colores extraídos de tu marca) --- */
+        :root {
+            --dorado: #b8943a;       /* El color de tu logo principal */
+            --fondo-oscuro: #121212; /* Fondo casi negro para sofisticación */
+            --crema: #fdfaf5;        /* Texto claro suave */
+            --gris-suave: #a0a0a0;
+            --verde-lima: #a3e635;   /* Color de acento del primer empaque */
+            --morado: #6b21a8;      /* Color de acento del segundo empaque */
+            
+            --fuente-titulo: 'Playfair Display', serif;
+            --fuente-texto: 'Montserrat', sans-serif;
+        }
+
+        /* --- ESTILOS GLOBALES --- */
+        html {
+            scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en enlaces */
+        }
+
+        body {
+            font-family: var(--fuente-texto);
+            background-color: var(--fondo-oscuro);
+            color: var(--crema);
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--fuente-titulo);
+            font-weight: 700;
+            margin: 0;
+        }
+
+        p {
+            font-weight: 300;
+            line-height: 1.8;
+            color: var(--gris-suave);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s ease;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        nav {
+            background-color: rgba(18, 18, 18, 0.95);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .nav-logo {
+            height: 50px; /* Tamaño del logo en la barra de navegación */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a:hover {
+            color: var(--dorado);
+        }
+
+        /* --- HERO SECTION (Portada) --- */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
+            padding-top: 80px; /* Espacio para la nav bar */
+        }
+
+        .hero-logo {
+            max-width: 350px; /* Logo grande en la portada */
+            margin-bottom: 30px;
+            /* Efecto sutil de brillo */
+            filter: drop-shadow(0 0 15px rgba(184, 148, 58, 0.2));
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            color: var(--crema);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--dorado);
+            font-family: var(--fuente-titulo);
+            margin-bottom: 40px;
+        }
+
+        /* --- BOTONES --- */
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--dorado);
+            color: #fff;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 5px;
+            border: 2px solid var(--dorado);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--dorado);
+        }
+
+        /* --- SECCIÓN HISTORIA/ORIGEN --- */
+        .origen {
+            padding: 100px 10%;
+            text-align: center;
+            background-color: #080808;
+        }
+
+        .origen h2 {
+            font-size: 2.8rem;
+            color: var(--dorado);
+            margin-bottom: 20px;
+        }
+
+        .origen-content {
+            max-width: 800px;
+            margin: 0 auto;
+            border-left: 2px solid var(--dorado);
+            border-right: 2px solid var(--dorado);
+            padding: 0 40px;
+        }
+
+        /* --- SECCIÓN CATÁLOGO (Donde van tus empaques) --- */
+        .catalogo {
+            padding: 100px 10%;
+        }
+
+        .catalogo h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--crema);
+        }
+
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+        }
+
+        .producto-card {
+            background-color: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid #2a2a2a;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(184, 148, 58, 0.1);
+        }
+
+        .producto-img-container {
+            width: 100%;
+            height: 450px; /* Altura para mostrar el empaque alto */
+            overflow: hidden;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .producto-img {
+            height: 100%; /* El empaque ocupa toda la altura disponible */
+            width: auto;   /* Mantiene la proporción */
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .producto-card:hover .producto-img {
+            transform: scale(1.05); /* Zoom sutil al pasar el mouse */
+        }
+
+        .producto-info {
+            padding: 30px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .producto-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--crema);
+        }
+
+        /* Colores específicos para cada producto basados en el empaque */
+        .card-verde h3 { color: var(--verde-lima); }
+        .card-morada h3 { color: var(--morado); }
+
+        .tag-origen {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--dorado);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .producto-info p {
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 60px 10%;
+            border-top: 1px solid #2a2a2a;
+            background-color: #080808;
+        }
+
+        .footer-logo {
+            height: 70px;
+            margin-bottom: 20px;
+            filter: grayscale(1) opacity(0.5); /* Logo en gris suave en el footer */
+        }
+
+        /* --- RESPONSIVE (Adaptación a Móviles) --- */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Ocultar menú en móvil para simplicidad */
+            .productos-grid { grid-template-columns: 1fr; }
+            .origen-content { padding: 0 15px; border: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#"><img src="logo-principal.png" alt="Cacao Raíz Logo" class="nav-logo"></a>
+        <div class="nav-links">
+            <a href="#origen">Nuestro Origen</a>
+            <a href="#catalogo">Colección</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </nav>
+
+    <header id="inicio">
+        <img src="logo-principal.png" alt="Cacao Raíz - Logo Grande" class="hero-logo">
+        <p class="subtitle">Del corazón de la tierra a tu paladar.</p>
+        <a href="#catalogo" class="btn">Descubrir Sabores</a>
+    </header>
+
+    <section id="origen" class="origen">
+        <h2>NUESTRO ORIGEN</h2>
+        <div class="origen-content">
+            <p>
+                En **Cacao Raíz**, En el corazón del Estado Sucre, donde la brisa del Caribe se encuentra con la fertilidad de 
+                la selva venezolana, nace nuestra historia. No somos solo chocolate; somos el tributo a una tierra que respira 
+                cacao desde hace siglos.
+                **Cacao Raíz** surge del respeto absoluto por el origen. Seleccionamos los granos de las mejores plantaciones de
+                la región oriental de Venezuela, reconocida mundialmente por producir un fruto con perfiles de sabor incomparables.
+                Lo que nos define: Pureza al 100%: Creemos que la naturaleza es perfecta. Por eso, nuestras barras son cacao puro, 
+                sin atajos ni añadidos, preservando cada nota aromática y beneficio ancestral.
+                Origen Sucre: Honramos el suelo sucrense, cuna del cacao de alta gama, trabajando de la mano con la tradición local
+                para llevar del árbol a tu paladar una experiencia honesta. 
+                Compromiso con la Esencia: Nuestra raíz es la fuerza que nos impulsa a transformar el grano en una joya gastronómica,    
+                manteniendo viva la herencia del mejor cacao del mundo.
+                Cacao Raíz: Es un viaje sensorial al origen del chocolate, sin filtros y con todo el alma de Venezuela.
+                
+            </p>
+        </div>
+    </section>
+
+    <section id="catalogo" class="catalogo">
+        <h2>La Colección</h2>
+        
+        <div class="productos-grid">
+            
+            <div class="producto-card card-verde">
+                <div class="producto-img-container">
+                    <img src="empaque-oscuro.png" alt="Chocolate Artesanal 30gr Cacao Raíz" class="producto-img">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <span class="tag-origen">Hecho en Carúpano</span>
+                        <h3>Intensidad Pura 30g</h3>
+                        <p>Nuestro chocolate 100% artesanal en su formato clásico. Notas profundas de cacao con un final sedoso.</p>
+                    </div>
+                    <a href="#" class="btn-pedir">Solicitar Pedido</a>
+                </div>
+            </div>
+
+            <div class="producto-card card-morada">
+                <div class="producto-img-container">
+                    <img src="empaque-morado.png" alt="Edición Especial 50gr Cacao Raíz" class="producto-img">
+                </div>
+                <div class="producto-info">
+                    <div>
+                        <span class="tag-origen">Edición Especial</span>
+                        <h3>Tentación Dorada 50g</h3>
+                        <p>Una experiencia extendida de nuestro mejor cacao. El equilibrio perfecto entre aroma y sabor artesanal.</p>
+                    </div>
+                    <a href="#" class="btn-pedir">Solicitar Pedido</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <img src="logo-principal.png" alt="Cacao Raíz Logo Footer" class="footer-logo">
+        <p>Elaborado en Carúpano, Estado Sucre, Venezuela.</p>
+        <p style="font-size: 0.8rem; margin-top: 20px;">&copy; 2024 Cacao Raíz. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
